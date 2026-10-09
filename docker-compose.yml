@@ -9,8 +9,10 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    # Faqat shu kompyuterdan (127.0.0.1); web konteyner bazaga ichki tarmoq orqali ulanadi.
+    # "5432:5432" bazani tarmoqdagi hammaga (va VPS'da internetga) ochib qo'yardi.
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
 
   web:
     build: .
