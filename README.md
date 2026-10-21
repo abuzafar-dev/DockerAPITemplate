@@ -2,6 +2,13 @@
 
 Django REST Framework API shablonining Docker versiyasi. Ma'lumotlar bazasi PostgreSQL, server gunicorn, statik fayllar whitenoise orqali beriladi.
 
+## Quick start
+
+```bash
+make run     # creates .venv and .env, installs deps, starts the app
+make test    # checks + tests
+```
+
 ## Docker bilan ishga tushirish
 
 ```bash
