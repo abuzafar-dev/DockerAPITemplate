@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
+    'apps',
     'products',
 ]
 
@@ -52,6 +53,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+AUTH_USER_MODEL = 'apps.User'
 
 if os.getenv('POSTGRES_DB'):
     DATABASES = {

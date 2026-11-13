@@ -1,6 +1,6 @@
 # Docker + API Template
 
-Django REST Framework API shablonining Docker versiyasi. Ma'lumotlar bazasi PostgreSQL, server gunicorn, statik fayllar whitenoise orqali beriladi.
+`APITemplate`ning Docker versiyasi: User CRUD, kalkulyator (path/query) va qo'shimcha Category/Product CRUD. Ma'lumotlar bazasi PostgreSQL, server gunicorn, statik fayllar whitenoise orqali beriladi.
 
 ## Quick start
 
@@ -24,7 +24,10 @@ Superuser yaratish:
 docker compose exec web python manage.py createsuperuser
 ```
 
-- API: http://127.0.0.1:8000/api/products/
+- Health: http://127.0.0.1:8000/api/health/
+- Kalkulyator: http://127.0.0.1:8000/api/calculator/path/5/7/ va http://127.0.0.1:8000/api/calculator/query/?n1=5&n2=7
+- Userlar: http://127.0.0.1:8000/api/users/ (POST — ro'yxatdan o'tish, qolgani login bilan)
+- Mahsulotlar: http://127.0.0.1:8000/api/categories/, http://127.0.0.1:8000/api/products/
 - Swagger: http://127.0.0.1:8000/api/docs/
 - Admin: http://127.0.0.1:8000/admin/
 
@@ -43,5 +46,7 @@ python manage.py runserver
 ## Testlar
 
 ```bash
-docker compose exec web python manage.py test
+make test
 ```
+
+Eski versiyadan yangilaganda (custom User qo'shilgan) bazani bir marta qayta yarating: `docker compose down -v`.
