@@ -34,4 +34,4 @@ install: .venv/.installed
 	@echo "==> .env yaratildi (.env.example asosida)"
 
 test: install
-	@bash scripts/ci.sh
+	@POSTGRES_DB= bash scripts/ci.sh
