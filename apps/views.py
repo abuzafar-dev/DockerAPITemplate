@@ -16,8 +16,6 @@ class HealthCheckView(APIView):
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    """Foydalanuvchilar CRUD. POST — ro'yxatdan o'tish; admin hammani, oddiy user faqat o'zini ko'radi."""
-
     serializer_class = UserSerializer
     permission_classes = [UserPermission]
 
@@ -28,20 +26,15 @@ class UserViewSet(viewsets.ModelViewSet):
         return queryset
 
 
-
-# --- Function-based view namunalari (@api_view) ---
-
 @extend_schema(responses=CalculatorResultSerializer, tags=['calculator'])
 @api_view(['GET'])
 def calculator_path(request, n1: int, n2: int):
-    """Path parametr: /api/calculator/path/5/7/"""
     return Response({'result': n1 + n2})
 
 
 @extend_schema(parameters=[CalculatorSerializer], responses=CalculatorResultSerializer, tags=['calculator'])
 @api_view(['GET'])
 def calculator_query(request):
-    """Query parametr: /api/calculator/query/?n1=5&n2=7 — noto'g'ri qiymatda 400."""
     serializer = CalculatorSerializer(data=request.query_params)
     serializer.is_valid(raise_exception=True)
     data = serializer.validated_data

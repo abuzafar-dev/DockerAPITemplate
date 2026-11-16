@@ -29,9 +29,7 @@ class UserSerializer(serializers.ModelSerializer):
         return instance
 
 
-
 class CalculatorSerializer(serializers.Serializer):
-    """Query parametrlarni tekshirish: ?n1=5&n2=7"""
     n1 = serializers.IntegerField(help_text='1-son')
     n2 = serializers.IntegerField(help_text='2-son')
 

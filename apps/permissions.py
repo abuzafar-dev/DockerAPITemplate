@@ -2,8 +2,6 @@ from rest_framework import permissions
 
 
 class UserPermission(permissions.BasePermission):
-    """Ro'yxatdan o'tish hammaga ochiq; qolgani — faqat o'zi yoki admin."""
-
     def has_permission(self, request, view):
         if view.action == 'create':
             return True
